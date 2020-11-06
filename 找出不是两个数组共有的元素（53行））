@@ -1,0 +1,53 @@
+#include <stdio.h>
+int main ()
+{
+	int n1, n2, a[20], b[20], c[20], BOOL[20], i, j, k = 0, tag = 1;
+	for(i=0; i<20; i++)
+		BOOL[i] = 1;
+		
+	scanf("%d", &n1);
+	for(i=0; i<n1; i++)
+		scanf("%d", &a[i]);
+		
+	scanf("%d", &n2);
+	for(i=0; i<n2; i++)
+		scanf("%d", &b[i]); // 将a[], b[]存入内存 
+	
+	for(i=0; i<n1; i++)
+	{
+		for(j=0; j<n2; j++)
+		{
+			if( a[i] == b[j] ) break;
+			else tag++;
+		}
+		if(tag == n2 + 1){ c[k] = a[i]; k++; }
+		tag = 1;
+	} //将不相等的a[]存入c[]中 
+	
+	for(i=0; i<n2; i++)
+	{
+		for(j=0; j<n1; j++)
+		{
+			if(a[j] == b[i]) break;
+			else tag++;
+		}
+		if(tag == n1 + 1) { c[k] = b[i]; k++;}
+		tag = 1;
+	} //将不相等的b[]存入c[]中 
+	
+	for(i=0; i<k; i++)
+	{
+		for(j=i+1; j<k; j++)
+			if(c[i] == c[j]) BOOL[j] = -1;
+	} // 查找重复的值并删除
+	
+	for(i=0; i<k; i++) 
+	{
+		if(BOOL[i] == 1)
+		{
+			if(tag == 1) { printf("%d", c[i]); tag = 0;}
+			else printf(" %d", c[i]);
+		} 
+	}//打印结果 
+	return 0;
+} 
