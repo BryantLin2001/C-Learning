@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main ()
+{
+	int n, a[1000], i, j, max = 0, box[1000];
+	scanf("%d", &n);
+	for(i=0; i<n; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	
+	for(i=0; i<n; i++)
+	{
+		box[i] = 100;
+	}
+	
+	for(i=0; i<n; i++)
+	{
+		for(j=0; j<n; j++)
+		{
+			if(max < j)
+				max = j; //记录所到达的箱子最大值
+			if(a[i] <= box[j])
+			{
+				box[j] -= a[i];
+				printf("%d %d\n", a[i], j+1);
+				break;
+			}
+		}
+	}
+	printf("%d\n", max+1);
+	return 0;
+}
