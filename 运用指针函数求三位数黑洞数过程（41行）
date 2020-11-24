@@ -1,0 +1,41 @@
+#include <stdio.h>
+void sort(int *a, int *b, int *c)
+{
+	int t;
+	if(*a < *b)
+	{
+		t = *a;
+		*a = *b;
+		*b = t;
+	}
+	if(*a < *c)
+	{
+		t = *a;
+		*a = *c;
+		*c = t;
+	}
+	if(*b < *c)
+	{
+		t = *b;
+		*b = *c;
+		*c = t;
+	}
+}
+int main ()
+{
+	int n, i = 1;
+	int a, b, c, max, min;
+	scanf("%d", &n);
+	do{
+		a = n / 100;
+		b = n % 100 / 10;
+		c = n % 10;
+		sort(&a,&b,&c);
+		max = a*100 + b*10 + c;
+		min = c*100 + b*10 + a;	
+		printf("%d: %d - %d = %d\n", i, max, min, max-min);
+		i++;
+		n = max - min;
+		}while(n != 495 && n != 0);
+	return 0;
+}
