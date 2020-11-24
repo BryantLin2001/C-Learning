@@ -1,0 +1,52 @@
+#include <stdio.h>
+int main ()
+{
+	int n, i, j, k, p, q, r, h = 1, u, z;
+	scanf("%d",&n);
+	int a[n][n];
+	if(n % 2 == 0)
+	{
+		r = n / 2;
+	}
+	else
+	{
+		r = (n - 1) / 2;
+	}
+	for(i=0; i<r; i++)
+	{
+		for(j=i; j<n-i-1; j++)
+		{
+			a[i][j] = h;
+			h++;
+		}
+		for(k=i; k<n-i-1; k++)
+		{
+			a[k][n-i-1] = h;
+			h++;
+		}
+		for(p=n-i-1; p>i; p--)
+		{
+			a[n-i-1][p] = h;
+			h++;
+		}
+		for(q=n-i-1; q>i; q--)
+		
+		{
+			a[q][i] = h;
+			h++;
+		}
+	}
+	if(n % 2 != 0)
+	{
+		a[(n-1)/2][(n-1)/2] = h;
+	}
+	for(u=0; u<n; u++)
+	{
+		for(z=0; z<n; z++)
+		{
+			printf("%3d", a[u][z]);
+		}
+		printf("\n");
+	}
+	return 0;
+} 
