@@ -1,0 +1,23 @@
+#include <stdio.h>
+#define N 80
+int main ()
+{
+	char s, a[N];
+	int i = 0, j, k, sum = 0;
+	s = getchar();
+	while(s != '\n')
+	{
+		a[i] = s;
+		i++;
+		s = getchar();
+	}
+	for(j=0; j<i; j++)
+	{
+		if(a[j] >= '0' && a[j] <= '9')
+		{
+			sum = sum*10 + (a[j] - '0');
+		}
+	}
+	printf("%d", sum);
+	return 0;
+}
