@@ -1,0 +1,16 @@
+void Sort(char *s)
+{
+	int i, j, temp, k = strlen(s);
+	for(i=1; i<k; i++)
+	{
+		for(j=0; j<k-i; j++)
+		{
+			if(s[j] > s[j+1])
+			{
+				temp = s[j];
+				s[j] = s[j+1];
+				s[j+1] = temp;
+			}
+		}
+	}
+}
