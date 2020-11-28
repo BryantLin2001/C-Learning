@@ -1,0 +1,19 @@
+void Delete_duplicate(char *s)
+{
+	int i, j, k;
+	for(i=1; s[i] !='\0'; i++)
+	{
+		for(j=0; j<i; j++)
+		{
+			if(s[j] == s[i])
+			{
+				for(k=i; k<strlen(s)-1; k++)
+				{
+					s[k] = s[k+1];
+				}
+				s[strlen(s)-1] = '\0';
+				i--;
+			}
+		}
+	}
+}
