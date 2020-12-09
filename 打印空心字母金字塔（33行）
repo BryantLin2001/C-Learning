@@ -1,0 +1,33 @@
+#include <stdio.h>
+int main ()
+{
+	char c;
+	int i, j, k, h;
+	scanf("%c", &c);
+	for(i=0; i<c-'A'; i++)
+	{
+		for(j=i; j<39; j++)
+		{
+			printf(" ");
+		}
+		printf("%c", 'A'+i);
+		if(i != 0)
+		{
+			for(j=0; j<2*i-1; j++)
+			{
+				printf(" ");
+			}
+			printf("%c", 'A'+i);
+		}
+		printf("\n");
+	}
+	for(h=0; h<39-(c-'A'); h++)
+	{
+		printf(" ");
+	}
+	for(k=0; k<2*(c-'A')+1; k++)
+	{
+		printf("%c", 'A'+i);
+	}
+	return 0;	
+} 
