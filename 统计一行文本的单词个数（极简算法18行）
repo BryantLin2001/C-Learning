@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+int main(){
+    char w[10000];
+    int i,count=0,a=0,b=0;
+    gets(w);
+    for(i=0;w[i]!='\0';i++){
+        a=b;
+        if(w[i]!=' ')
+            b=1;
+        else
+            b=0;
+        if(a==0 && b==1)
+            count++;
+    }
+    printf("%d",count);
+    return 0;
+}
